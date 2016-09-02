@@ -20,7 +20,7 @@ namespace Expansion
             this.location = location;
         }
 
-        public bool nearby(Point locationToCheck, int distance)
+        public bool Nearby(Point locationToCheck, int distance)
         {
             if (Math.Abs(location.X - locationToCheck.X) < distance &&
                 (Math.Abs(location.Y - locationToCheck.Y) < distance))
