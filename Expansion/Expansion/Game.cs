@@ -22,6 +22,7 @@ namespace Expansion
 
         private Rectangle boundaries;
         public Rectangle Boundaries { get { return boundaries; } }
+        public Size PlayerSpriteSize { get { return player.SpriteSize; } }
 
         public Game(Rectangle boundaries)
         {

@@ -30,13 +30,13 @@ namespace Expansion
             {
                 foreach (Enemy enemy in game.Enemies)
                 {
-                    if (Nearby(enemy.Location, target , distance))
+                    if (!enemy.Dead && Nearby(target, enemy, direction, radius))
                     {
                         enemy.Hit(damage, random);
                         return true;
                     }
                 }
-                target = Move(direction, target, game.Boundaries);
+             // pozniej   target = Move(direction, target, game.Boundaries);
             }
             return false;
         }
@@ -45,7 +45,91 @@ namespace Expansion
 
         private bool Nearby(Point playerLocation , Enemy enemy, Direction direction, int distance)
         {
-            //przeciążyć metode..
+            bool isNearby = false;
+
+            Rectangle enemySpriteBoundary = new Rectangle(enemy.Location, enemy.SpriteSize);
+            Rectangle playerAtackArea = new Rectangle();
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    playerAtackArea.Location = new Point(playerLocation.X, playerLocation.Y - distance);
+                    playerAtackArea.Width = game.PlayerSpriteSize.Width;
+                    playerAtackArea.Height = distance;
+                    break;
+                case Direction.Down:
+                    playerAtackArea.Location = new Point(playerLocation.X, playerLocation.Y + game.PlayerSpriteSize.Height);
+                    playerAtackArea.Width = game.PlayerSpriteSize.Width;
+                    playerAtackArea.Height = distance;
+                    break;
+                case Direction.Left:
+                    playerAtackArea.Location = new Point(playerLocation.X + distance, playerLocation.Y);
+                    playerAtackArea.Width = distance;
+                    playerAtackArea.Height = game.PlayerSpriteSize.Height;
+                    break;
+                case Direction.Right:
+                    playerAtackArea.Location = new Point(playerLocation.X + game.PlayerSpriteSize.Width, playerLocation.Y);
+                    playerAtackArea.Width = distance;
+                    playerAtackArea.Height = game.PlayerSpriteSize.Height;
+                    break;
+                default:
+                    break;
+            }
+
+            if (playerAtackArea.IntersectsWith(enemySpriteBoundary))
+            {
+                isNearby = true;
+            }
+            return isNearby;
+        }
+
+        protected Direction Directions(Direction direction)
+        {
+            Direction directions = direction;
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    direction = Direction.Right;
+                    break;
+                case Direction.Down:
+                    direction = Direction.Left;
+                    break;
+                case Direction.Left:
+                    direction = Direction.Up;
+                    break;
+                case Direction.Right:
+                    direction = Direction.Down;
+                    break;
+                default:
+                    break;
+            }
+            return direction;
+        }
+
+        public Direction CounterDirections(Direction direction)
+        {
+            Direction counterDirection = direction;
+
+            switch (direction)
+            {
+                case Direction.Up:
+                    counterDirection = Direction.Right;
+                    break;
+                case Direction.Down:
+                    counterDirection = Direction.Left;
+                    break;
+                case Direction.Left:
+                    counterDirection = Direction.Up;
+                    break;
+                case Direction.Right:
+                    counterDirection = Direction.Down;
+                    break;
+                default:
+                    break;
+            }
+            return counterDirection;
         }
     }
+
 }

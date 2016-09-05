@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Expansion
 {
-    class Sword : Weapon
+    class Bow : Weapon
     {
-        public Sword(Game game, Point location)
+        public Bow(Game game, Point location) 
             : base(game, location)
         {
         }
@@ -18,20 +18,13 @@ namespace Expansion
         {
             get
             {
-                return "Długi miecz";
+                return "Łuk";
             }
         }
 
         public override void Attack(Direction direction, Random random)
         {
-            if (!DamageEnemy(direction, 10, 3, random))
-            {
-                if (!DamageEnemy(Directions(direction), 10, 3, random))
-                {
-                    DamageEnemy(CounterDirections(direction), 10, 3, random);
-                }
-            }
+            DamageEnemy(direction, 30, 1, random);
         }
-        
     }
 }

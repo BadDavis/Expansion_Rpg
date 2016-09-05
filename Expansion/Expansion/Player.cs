@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Expansion
 {
-    class Player : Mover
+    class Player : Mover, ISpriteSize
     {
         private Weapon equippedWeapon;
         public int HitPoints { get; private set; }
@@ -26,10 +26,17 @@ namespace Expansion
             }
         }
 
-        public Player(Game game, Point location)
+        public Size SpriteSize
+        {
+            get;
+            private set;
+        }
+
+        public Player(Game game, Point location, Size spriteSize)
             : base(game, location)
         {
             HitPoints = 10;
+            this.SpriteSize = spriteSize;
         }
 
         public void Hit(int maxDamage, Random random) //Przeciwnik atakuje gracza

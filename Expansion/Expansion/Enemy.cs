@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Expansion
 {
-    abstract class Enemy : Mover
+    abstract class Enemy : Mover, ISpriteSize
     {
         private const int NearPlayerDistance = 25;
         public int  HitPoints { get { return hitPoints; } }
@@ -24,10 +24,13 @@ namespace Expansion
             }
         }
 
-        public Enemy(Game game, Point location, int hitPoints)
+        public Size SpriteSize { get; private set; }
+
+        public Enemy(Game game, Point location, int hitPoints, Size spriteSize)
             : base(game, location)
         {
             this.hitPoints = hitPoints;
+            SpriteSize = spriteSize;
         }
 
         public abstract void Move(Random random);
