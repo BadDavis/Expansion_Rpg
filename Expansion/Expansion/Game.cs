@@ -56,7 +56,7 @@ namespace Expansion
 
         public void IncreasePlayerHealth(int health, Random random)
         {
-            player.Increasehealth(health, random);
+            player.IncreaseHealth(health, random);
         }
 
         public void Attack(Direction direction, Random random)

@@ -102,7 +102,7 @@ namespace Expansion
             }
             else
             {
-                if (inventory.Contains(Red) )
+                if (inventory.Contains(RedPotion) )
                 {
                     player.IncreaseHealth(1, random);
                     inventory.Remove(Red);

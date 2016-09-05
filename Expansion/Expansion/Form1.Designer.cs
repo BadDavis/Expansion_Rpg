@@ -57,9 +57,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ghostHitPoints = new System.Windows.Forms.Label();
             this.ghoulHitPoints = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.wizardHp = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.eqBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.playerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swordBox)).BeginInit();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // playerBox
@@ -253,48 +255,58 @@
             // eqBox4
             // 
             this.eqBox4.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox4.BackgroundImage")));
             this.eqBox4.Location = new System.Drawing.Point(293, 537);
             this.eqBox4.Name = "eqBox4";
             this.eqBox4.Size = new System.Drawing.Size(50, 50);
             this.eqBox4.TabIndex = 16;
             this.eqBox4.TabStop = false;
+            this.eqBox4.Click += new System.EventHandler(this.eqBox4_Click);
             // 
             // eqBox2
             // 
             this.eqBox2.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox2.BackgroundImage")));
             this.eqBox2.Location = new System.Drawing.Point(181, 537);
             this.eqBox2.Name = "eqBox2";
             this.eqBox2.Size = new System.Drawing.Size(50, 50);
             this.eqBox2.TabIndex = 17;
             this.eqBox2.TabStop = false;
+            this.eqBox2.Click += new System.EventHandler(this.eqBox2_Click);
             // 
             // eqBox5
             // 
             this.eqBox5.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox5.BackgroundImage")));
             this.eqBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.eqBox5.Location = new System.Drawing.Point(349, 537);
             this.eqBox5.Name = "eqBox5";
             this.eqBox5.Size = new System.Drawing.Size(50, 50);
             this.eqBox5.TabIndex = 18;
             this.eqBox5.TabStop = false;
+            this.eqBox5.Click += new System.EventHandler(this.eqBox5_Click);
             // 
             // eqBox3
             // 
             this.eqBox3.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox3.BackgroundImage")));
             this.eqBox3.Location = new System.Drawing.Point(237, 537);
             this.eqBox3.Name = "eqBox3";
             this.eqBox3.Size = new System.Drawing.Size(50, 50);
             this.eqBox3.TabIndex = 19;
             this.eqBox3.TabStop = false;
+            this.eqBox3.Click += new System.EventHandler(this.eqBox3_Click);
             // 
             // eqBox1
             // 
             this.eqBox1.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox1.BackgroundImage")));
             this.eqBox1.Location = new System.Drawing.Point(125, 537);
             this.eqBox1.Name = "eqBox1";
             this.eqBox1.Size = new System.Drawing.Size(50, 50);
             this.eqBox1.TabIndex = 20;
             this.eqBox1.TabStop = false;
+            this.eqBox1.Click += new System.EventHandler(this.eqBox1_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -403,17 +415,6 @@
             this.ghoulHitPoints.TabIndex = 7;
             this.ghoulHitPoints.Text = "label3";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.groupBox1.Location = new System.Drawing.Point(424, 505);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -434,6 +435,28 @@
             this.wizardHp.TabIndex = 9;
             this.wizardHp.Text = "label4";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.groupBox1.Location = new System.Drawing.Point(551, 517);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // eqBox6
+            // 
+            this.eqBox6.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox6.BackgroundImage")));
+            this.eqBox6.Location = new System.Drawing.Point(405, 537);
+            this.eqBox6.Name = "eqBox6";
+            this.eqBox6.Size = new System.Drawing.Size(50, 50);
+            this.eqBox6.TabIndex = 23;
+            this.eqBox6.TabStop = false;
+            this.eqBox6.Click += new System.EventHandler(this.eqBox6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,6 +464,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1000, 662);
+            this.Controls.Add(this.eqBox6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.eqBox1);
@@ -465,6 +489,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.playerBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.swordBox)).EndInit();
@@ -486,6 +511,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,6 +549,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label wizardHp;
+        private System.Windows.Forms.PictureBox eqBox6;
     }
 }
 
