@@ -61,6 +61,8 @@
             this.wizardHp = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.eqBox6 = new System.Windows.Forms.PictureBox();
+            this.dieBox = new System.Windows.Forms.PictureBox();
+            this.victoryBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.playerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swordBox)).BeginInit();
@@ -82,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).BeginInit();
             this.SuspendLayout();
             // 
             // playerBox
@@ -457,6 +461,28 @@
             this.eqBox6.TabStop = false;
             this.eqBox6.Click += new System.EventHandler(this.eqBox6_Click);
             // 
+            // dieBox
+            // 
+            this.dieBox.BackColor = System.Drawing.Color.Transparent;
+            this.dieBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dieBox.BackgroundImage")));
+            this.dieBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dieBox.Location = new System.Drawing.Point(375, 188);
+            this.dieBox.Name = "dieBox";
+            this.dieBox.Size = new System.Drawing.Size(267, 126);
+            this.dieBox.TabIndex = 24;
+            this.dieBox.TabStop = false;
+            // 
+            // victoryBox
+            // 
+            this.victoryBox.BackColor = System.Drawing.Color.Transparent;
+            this.victoryBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("victoryBox.BackgroundImage")));
+            this.victoryBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.victoryBox.Location = new System.Drawing.Point(375, 279);
+            this.victoryBox.Name = "victoryBox";
+            this.victoryBox.Size = new System.Drawing.Size(267, 177);
+            this.victoryBox.TabIndex = 25;
+            this.victoryBox.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,6 +490,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1000, 662);
+            this.Controls.Add(this.victoryBox);
+            this.Controls.Add(this.dieBox);
             this.Controls.Add(this.eqBox6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -512,6 +540,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,6 +580,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label wizardHp;
         private System.Windows.Forms.PictureBox eqBox6;
+        private System.Windows.Forms.PictureBox dieBox;
+        private System.Windows.Forms.PictureBox victoryBox;
     }
 }
 

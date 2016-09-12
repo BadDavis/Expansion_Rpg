@@ -75,6 +75,23 @@ namespace Expansion
             }
         }
 
+        public bool CheckPotionUsed(string potionName)
+        {
+            IPotion potion;
+            bool potionUsed = true;
+
+            foreach (Weapon weapon in inventory)
+            {
+                if (weapon.Name == potionName && weapon is IPotion)
+                {
+                    potion = weapon as IPotion;
+                    potionUsed = potion.Used;
+                }
+            }
+
+            return potionUsed;
+        }
+
         public void Attack(Direction direction, Random random)
         {
             Player player;

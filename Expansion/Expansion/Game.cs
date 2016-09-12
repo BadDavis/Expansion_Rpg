@@ -68,6 +68,11 @@ namespace Expansion
             }
         }
 
+        public bool Potion(string potionName)
+        {
+            return player.CheckPotionUsed(potionName);
+        }
+
         private Point GetRandomLocation(Random random)
         {
             return new Point(boundaries.Left +

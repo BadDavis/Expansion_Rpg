@@ -64,7 +64,7 @@ namespace Expansion
 
         private void eqBox4_Click(object sender, EventArgs e)
         {
-            if (game.CheckPlayerInventory("Topur Obosieczny"))
+            if (game.CheckPlayerInventory("Topór Obosieczny"))
             {
                 game.Equip("Topur Obosieczny");
                 RemoveInventorySpriteBorders();
@@ -156,6 +156,111 @@ namespace Expansion
                         enemiesShown++;
                     }
                 }
+            }
+
+            if (showBat == false)
+            {
+                batBox.Visible = false;
+                label1.Text = "";
+            }
+            if (showGhost == false)
+            {
+                ghostBox.Visible = false;
+                label3.Text = "";
+            }
+            if (showGhoul == false)
+            {
+                ghoulBox.Visible = false;
+                label2.Text = "";
+            }
+
+            swordBox.Visible = false;
+            axeBox.Visible = false;
+            redPotionBox.Visible = false;
+            bluePotionBox.Visible = false;
+            maceBox.Visible = false;
+            bowBox.Visible = false;
+
+            Control weaponControl = null;
+            switch (game.WeaponInRoom.Name)
+            {
+                case "Miecz":
+                    weaponControl = swordBox;
+                    break;
+
+                case "Buława":
+                    weaponControl = maceBox;
+                    break;
+
+                case "Topór Obosieczny":
+                    weaponControl = axeBox;
+                    break;
+
+                case "Łuk":
+                    weaponControl = bowBox;
+                    break;
+
+                default:
+                    break;
+            }
+            weaponControl.Location = game.WeaponInRoom.Location;
+            if (game.WeaponInRoom.PickedUp)
+            {
+                weaponControl.Visible = false;
+            }
+            else
+            {
+                weaponControl.Visible = true;
+            }
+
+            eqBox1.Visible = false;
+            eqBox2.Visible = false;
+            eqBox3.Visible = false;
+            eqBox4.Visible = false;
+            eqBox5.Visible = false;
+            eqBox6.Visible = false;
+
+            if (game.CheckPlayerInventory("Miecz"))
+            {
+                eqBox1.Visible = true;
+            }
+            if (game.CheckPlayerInventory("Topór obosieczny"))
+            {
+                eqBox3.Visible = true;
+            }
+            if (game.CheckPlayerInventory("Łuk"))
+            {
+                eqBox2.Visible = true;
+            }
+            if (game.CheckPlayerInventory("Buława"))
+            {
+                eqBox4.Visible = true;
+            }
+            if (game.CheckPlayerInventory("Czerwona mikstura"))
+            {
+                if (!game.Potion("Czerwona mikstura"))
+                {
+                    eqBox6.Visible = true;
+                }
+            }
+            if (game.CheckPlayerInventory("Niebieska mikstura"))
+            {
+                if (game.Potion("Niebieska mikstura"))
+                {
+                    eqBox5.Visible = true;
+                }
+            }
+
+            if (game.playerHitPoints <= 0)
+            {
+                dieBox.Visible = true;
+                Application.Exit();
+            }
+            if (enemiesShown < 1)
+            {
+                victoryBox.Visible = true;
+                game.NewLevel(random);
+                UpdadeCharackters();
             }
         }
     }
