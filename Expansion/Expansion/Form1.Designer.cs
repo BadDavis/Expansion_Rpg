@@ -59,10 +59,19 @@
             this.ghoulHitPoints = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.wizardHp = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Ruch = new System.Windows.Forms.GroupBox();
             this.eqBox6 = new System.Windows.Forms.PictureBox();
             this.dieBox = new System.Windows.Forms.PictureBox();
             this.victoryBox = new System.Windows.Forms.PictureBox();
+            this.moveUp = new System.Windows.Forms.Button();
+            this.moveLeft = new System.Windows.Forms.Button();
+            this.moveRight = new System.Windows.Forms.Button();
+            this.moveDown = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.attackDown = new System.Windows.Forms.Button();
+            this.attackRight = new System.Windows.Forms.Button();
+            this.attackLeft = new System.Windows.Forms.Button();
+            this.attackUp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swordBox)).BeginInit();
@@ -83,9 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.Ruch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dieBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // playerBox
@@ -439,16 +450,20 @@
             this.wizardHp.TabIndex = 9;
             this.wizardHp.Text = "label4";
             // 
-            // groupBox1
+            // Ruch
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.groupBox1.Location = new System.Drawing.Point(551, 517);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.Ruch.BackColor = System.Drawing.Color.Transparent;
+            this.Ruch.Controls.Add(this.moveDown);
+            this.Ruch.Controls.Add(this.moveRight);
+            this.Ruch.Controls.Add(this.moveLeft);
+            this.Ruch.Controls.Add(this.moveUp);
+            this.Ruch.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.Ruch.Location = new System.Drawing.Point(551, 517);
+            this.Ruch.Name = "Ruch";
+            this.Ruch.Size = new System.Drawing.Size(121, 100);
+            this.Ruch.TabIndex = 22;
+            this.Ruch.TabStop = false;
+            this.Ruch.Text = "Ruch";
             // 
             // eqBox6
             // 
@@ -483,6 +498,102 @@
             this.victoryBox.TabIndex = 25;
             this.victoryBox.TabStop = false;
             // 
+            // moveUp
+            // 
+            this.moveUp.Location = new System.Drawing.Point(52, 11);
+            this.moveUp.Name = "moveUp";
+            this.moveUp.Size = new System.Drawing.Size(30, 30);
+            this.moveUp.TabIndex = 0;
+            this.moveUp.Text = "↑";
+            this.moveUp.UseVisualStyleBackColor = true;
+            this.moveUp.Click += new System.EventHandler(this.moveUp_Click);
+            // 
+            // moveLeft
+            // 
+            this.moveLeft.Location = new System.Drawing.Point(16, 40);
+            this.moveLeft.Name = "moveLeft";
+            this.moveLeft.Size = new System.Drawing.Size(30, 30);
+            this.moveLeft.TabIndex = 1;
+            this.moveLeft.Text = "←";
+            this.moveLeft.UseVisualStyleBackColor = true;
+            this.moveLeft.Click += new System.EventHandler(this.moveLeft_Click);
+            // 
+            // moveRight
+            // 
+            this.moveRight.Location = new System.Drawing.Point(88, 40);
+            this.moveRight.Name = "moveRight";
+            this.moveRight.Size = new System.Drawing.Size(30, 30);
+            this.moveRight.TabIndex = 2;
+            this.moveRight.Text = "→";
+            this.moveRight.UseVisualStyleBackColor = true;
+            this.moveRight.Click += new System.EventHandler(this.moveRight_Click);
+            // 
+            // moveDown
+            // 
+            this.moveDown.Location = new System.Drawing.Point(52, 70);
+            this.moveDown.Name = "moveDown";
+            this.moveDown.Size = new System.Drawing.Size(30, 30);
+            this.moveDown.TabIndex = 3;
+            this.moveDown.Text = "↓";
+            this.moveDown.UseVisualStyleBackColor = true;
+            this.moveDown.Click += new System.EventHandler(this.moveDown_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.attackDown);
+            this.groupBox1.Controls.Add(this.attackRight);
+            this.groupBox1.Controls.Add(this.attackLeft);
+            this.groupBox1.Controls.Add(this.attackUp);
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.groupBox1.Location = new System.Drawing.Point(683, 517);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(121, 100);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Atak";
+            // 
+            // attackDown
+            // 
+            this.attackDown.Location = new System.Drawing.Point(52, 70);
+            this.attackDown.Name = "attackDown";
+            this.attackDown.Size = new System.Drawing.Size(30, 30);
+            this.attackDown.TabIndex = 3;
+            this.attackDown.Text = "↓";
+            this.attackDown.UseVisualStyleBackColor = true;
+            this.attackDown.Click += new System.EventHandler(this.attackDown_Click);
+            // 
+            // attackRight
+            // 
+            this.attackRight.Location = new System.Drawing.Point(88, 40);
+            this.attackRight.Name = "attackRight";
+            this.attackRight.Size = new System.Drawing.Size(30, 30);
+            this.attackRight.TabIndex = 2;
+            this.attackRight.Text = "→";
+            this.attackRight.UseVisualStyleBackColor = true;
+            this.attackRight.Click += new System.EventHandler(this.attackRight_Click);
+            // 
+            // attackLeft
+            // 
+            this.attackLeft.Location = new System.Drawing.Point(16, 40);
+            this.attackLeft.Name = "attackLeft";
+            this.attackLeft.Size = new System.Drawing.Size(30, 30);
+            this.attackLeft.TabIndex = 1;
+            this.attackLeft.Text = "←";
+            this.attackLeft.UseVisualStyleBackColor = true;
+            this.attackLeft.Click += new System.EventHandler(this.attackLeft_Click);
+            // 
+            // attackUp
+            // 
+            this.attackUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.attackUp.Location = new System.Drawing.Point(52, 11);
+            this.attackUp.Name = "attackUp";
+            this.attackUp.Size = new System.Drawing.Size(30, 30);
+            this.attackUp.TabIndex = 0;
+            this.attackUp.Text = "↑";
+            this.attackUp.UseVisualStyleBackColor = true;
+            this.attackUp.Click += new System.EventHandler(this.attackUp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,10 +601,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1000, 662);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.victoryBox);
             this.Controls.Add(this.dieBox);
             this.Controls.Add(this.eqBox6);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.Ruch);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.eqBox1);
             this.Controls.Add(this.eqBox3);
@@ -539,9 +651,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.Ruch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dieBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -576,12 +690,21 @@
         private System.Windows.Forms.Label ghostHitPoints;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ghoulHitPoints;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox Ruch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label wizardHp;
         private System.Windows.Forms.PictureBox eqBox6;
         private System.Windows.Forms.PictureBox dieBox;
         private System.Windows.Forms.PictureBox victoryBox;
+        private System.Windows.Forms.Button moveDown;
+        private System.Windows.Forms.Button moveRight;
+        private System.Windows.Forms.Button moveLeft;
+        private System.Windows.Forms.Button moveUp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button attackDown;
+        private System.Windows.Forms.Button attackRight;
+        private System.Windows.Forms.Button attackLeft;
+        private System.Windows.Forms.Button attackUp;
     }
 }
 

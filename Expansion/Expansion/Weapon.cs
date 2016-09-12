@@ -9,14 +9,21 @@ namespace Expansion
 {
     abstract class Weapon : Mover
     {
-        public bool PickedUp { get; private set; }
+        public bool PickedUp
+        {
+            get
+            {
+                return pickedUp;
+            }
+        }
 
         public Weapon(Game game, Point location) : base(game, location)
         {
-            PickedUp = false;
+            pickedUp = false;
         }
 
-        public void PickedUpWeapon() { PickedUp = true; }
+        public void PickedUpWeapon() { pickedUp = true; }
+        private bool pickedUp;
 
         public abstract string Name { get; }
 

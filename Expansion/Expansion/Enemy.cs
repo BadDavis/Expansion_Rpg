@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Expansion
 {
-    abstract class Enemy : Mover, ISpriteSize
+     abstract class Enemy : Mover, ISpriteSize
     {
         private const int NearPlayerDistance = 25;
         public int  HitPoints { get { return hitPoints; } }

@@ -10,10 +10,11 @@ namespace Expansion
     class Player : Mover, ISpriteSize
     {
         private Weapon equippedWeapon;
-        public int HitPoints { get; private set; }
+        private int hitPoints;
+        public int HitPoints { get { return hitPoints; } }
         private List<Weapon> inventory = new List<Weapon>();
 
-        public IEnumerable<string> Weapons
+        public List<string> Weapons
         {
             get
             {
@@ -35,18 +36,18 @@ namespace Expansion
         public Player(Game game, Point location, Size spriteSize)
             : base(game, location)
         {
-            HitPoints = 10;
+            hitPoints = 10;
             this.SpriteSize = spriteSize;
         }
 
         public void Hit(int maxDamage, Random random) //Przeciwnik atakuje gracza
         {
-            HitPoints -= random.Next(1, maxDamage);
+            hitPoints -= random.Next(1, maxDamage);
         }
 
         public void IncreaseHealth(int health, Random random) //Gracz leczy rany
         {
-            HitPoints += random.Next(1, health);
+            hitPoints += random.Next(1, health);
         }
 
         public void Equip(string weaponName) // Gracz wybiera broń
@@ -92,7 +93,6 @@ namespace Expansion
 
         public void Attack(Direction direction, Random random)
         {
-            Player player;
             //Jeśli gracz ma bron wtedy atakuje
             //Potion użyty znika z eq+
             if (inventory.Contains(equippedWeapon))

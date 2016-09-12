@@ -29,42 +29,42 @@ namespace Expansion
 
         private void eqBox1_Click(object sender, EventArgs e)
         {
-            if (game.CheckPlayerInventory("Miecz"))
-            {
-                game.Equip("Miecz");
-                RemoveInventorySpriteBorders();
-            }
-            eqBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            SelectInventoryItem(swordBox, "Miecz", "weapon");
         }
 
         private void eqBox2_Click(object sender, EventArgs e)
         {
-            if (game.CheckPlayerInventory("Łuk"))
-            {
-                game.Equip("Łuk");
-                RemoveInventorySpriteBorders();
-            }
-            eqBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            /*/  if (game.CheckPlayerInventory("Łuk"))
+               {
+                   game.Equip("Łuk");
+                   RemoveInventorySpriteBorders();
+               }
+               eqBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;*/
+            SelectInventoryItem(bowBox, "Łuk", "weapon");
         }
 
         private void eqBox3_Click(object sender, EventArgs e)
         {
-            if (game.CheckPlayerInventory("Buława"))
-            {
-                game.Equip("Buława");
-                RemoveInventorySpriteBorders();
-            }
-            eqBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            /* if (game.CheckPlayerInventory("Buława"))
+             {
+                 game.Equip("Buława");
+                 RemoveInventorySpriteBorders();
+             }
+             eqBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+             SelectInventoryItem(swordBox, "Miecz", "weapon");
+         */
+            SelectInventoryItem(bowBox, "Łuk", "weapon");
         }
 
         private void eqBox4_Click(object sender, EventArgs e)
         {
-            if (game.CheckPlayerInventory("Topór Obosieczny"))
-            {
-                game.Equip("Topur Obosieczny");
-                RemoveInventorySpriteBorders();
-            }
-            eqBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            /* if (game.CheckPlayerInventory("Topór Obosieczny"))
+             {
+                 game.Equip("Topur Obosieczny");
+                 RemoveInventorySpriteBorders();
+             }
+             eqBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;*/
+            SelectInventoryItem(axeBox, "Topór Obosieczny", "weapon");
         }
 
         private void eqBox5_Click(object sender, EventArgs e)
@@ -176,7 +176,7 @@ namespace Expansion
             maceBox.Visible = false;
             bowBox.Visible = false;
 
-            
+
             if (game.WeaponInRoom != null)
             {
                 Control weaponControl = null;
@@ -198,8 +198,14 @@ namespace Expansion
                         weaponControl = bowBox;
                         break;
 
-                    default:
+                    case "Niebieska mikstura":
+                        weaponControl = bluePotionBox;
                         break;
+
+                    case "Czerwona mikstura":
+                        weaponControl = redPotionBox;
+                        break;
+
                 }
 
                 if (game.WeaponInRoom.PickedUp)
@@ -208,8 +214,9 @@ namespace Expansion
                 }
                 else
                 {
-                    weaponControl.Visible = true;
-                    weaponControl.Location = game.WeaponInRoom.Location;
+                    //       Console.Write(weaponControl);
+                  //  weaponControl.Visible = true;
+                    //weaponControl.Location = game.WeaponInRoom.Location;
                 }
             }
 
@@ -261,6 +268,104 @@ namespace Expansion
                 victoryBox.Visible = true;
                 game.NewLevel(random);
                 UpdateCharacters();
+            }
+        }
+
+        private void moveUp_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Up, random);
+            UpdateCharacters();
+        }
+
+        private void moveDown_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Down, random);
+            UpdateCharacters();
+        }
+
+        private void moveLeft_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Left, random);
+            UpdateCharacters();
+        }
+
+        private void moveRight_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Right, random);
+            UpdateCharacters();
+        }
+
+        private void attackUp_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Up, random);
+            UpdateCharacters();
+        }
+
+        private void attackDown_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Down, random);
+            UpdateCharacters();
+        }
+
+        private void attackLeft_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Left, random);
+            UpdateCharacters();
+        }
+
+        private void attackRight_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Right, random);
+            UpdateCharacters();
+        }
+
+        private bool UpdateEnemySprite(Enemy enemy, PictureBox enemySprite, Label enemyHitPoints)
+        {
+            bool enemySpriteUpdated = false;
+
+            enemyHitPoints.Text = enemy.HitPoints.ToString();
+
+            if (enemy.HitPoints > 0)
+            {
+                enemySprite.Location = enemy.Location;
+                enemySprite.Visible = true;
+                enemySpriteUpdated = true;
+            }
+            else
+            {
+                enemySprite.Visible = false;
+            }
+
+            return enemySpriteUpdated;
+        }
+
+        private void SelectInventoryItem(PictureBox itemSprite, string itemName, string weaponType)
+        {
+            if (game.CheckPlayerInventory(itemName))
+            {
+                game.Equip(itemName);
+                RemoveInventorySpriteBorders();
+                itemSprite.BorderStyle = BorderStyle.FixedSingle;
+                SetupAttackButtons(weaponType);
+            }
+        }
+
+        private void SetupAttackButtons(string weaponType)
+        {
+            switch (weaponType.ToLower())
+            {
+                case "weapon":
+                    attackUp.Text = "Up";
+                    attackRight.Visible = true;
+                    attackDown.Visible = true;
+                    attackLeft.Visible = true;
+                    break;
+                case "potion":
+                    attackUp.Text = "Drink";
+                    attackRight.Visible = false;
+                    attackDown.Visible = false;
+                    attackLeft.Visible = false;
+                    break;
             }
         }
     }

@@ -10,13 +10,13 @@ namespace Expansion
 {
     class Game
     {
-        public List<Enemy> Enemies { get; private set;}
-        public Weapon WeaponInRoom { get; private set; }
+        public List<Enemy> Enemies;
+        public Weapon WeaponInRoom;
 
         private Player player;
         public Point playerLocation { get { return player.Location; } }
         public int playerHitPoints { get { return player.HitPoints; } }
-        public IEnumerable<string> PlayerWeapons { get { return player.Weapons; } }
+        public List<string> PlayerWeapons { get { return player.Weapons; } }
         private int level = 0;
         public int Level { get { return level; } }
 
@@ -109,7 +109,7 @@ namespace Expansion
                     Enemies = new List<Enemy>();
                     Enemies.Add(new Bat(this, GetRandomLocation(random), 6, new Size(30, 30)));
                     Enemies.Add(new Ghost(this, GetRandomLocation(random), 8, new Size(30, 30)));
-                    if (player.Weapons.Contains("Łuk"))
+                    if (CheckPlayerInventory("Łuk"))
                     {
                         WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     }

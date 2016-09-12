@@ -9,7 +9,6 @@ namespace Expansion
 {
     class Bat : Enemy
     {
-        Player player;
         public Bat(Game game, Point location, int hitPoints, Size spriteSize)
             : base(game, location, hitPoints, spriteSize)
         {
@@ -29,10 +28,7 @@ namespace Expansion
 
             if (NearPlayer())
             {
-                while (player.HitPoints >= 1)
-                {
-                    player.Hit(2, random);
-                }
+                game.HitPlayer(2, random);
             }
         }
     }
