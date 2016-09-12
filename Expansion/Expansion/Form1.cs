@@ -24,12 +24,7 @@ namespace Expansion
         {
             game = new Game(new Rectangle(78, 57, 420, 155)); //dostosować
             game.NewLevel(random);
-            UpdadeCharackters();
-        }
-
-        private void UpdadeCharackters()
-        {
-            throw new NotImplementedException();
+            UpdateCharacters();
         }
 
         private void eqBox1_Click(object sender, EventArgs e)
@@ -181,36 +176,41 @@ namespace Expansion
             maceBox.Visible = false;
             bowBox.Visible = false;
 
-            Control weaponControl = null;
-            switch (game.WeaponInRoom.Name)
+            
+            if (game.WeaponInRoom != null)
             {
-                case "Miecz":
-                    weaponControl = swordBox;
-                    break;
+                Control weaponControl = null;
+                switch (game.WeaponInRoom.Name)
+                {
+                    case "Miecz":
+                        weaponControl = swordBox;
+                        break;
 
-                case "Buława":
-                    weaponControl = maceBox;
-                    break;
+                    case "Buława":
+                        weaponControl = maceBox;
+                        break;
 
-                case "Topór Obosieczny":
-                    weaponControl = axeBox;
-                    break;
+                    case "Topór Obosieczny":
+                        weaponControl = axeBox;
+                        break;
 
-                case "Łuk":
-                    weaponControl = bowBox;
-                    break;
+                    case "Łuk":
+                        weaponControl = bowBox;
+                        break;
 
-                default:
-                    break;
-            }
-            weaponControl.Location = game.WeaponInRoom.Location;
-            if (game.WeaponInRoom.PickedUp)
-            {
-                weaponControl.Visible = false;
-            }
-            else
-            {
-                weaponControl.Visible = true;
+                    default:
+                        break;
+                }
+
+                if (game.WeaponInRoom.PickedUp)
+                {
+                    weaponControl.Visible = false;
+                }
+                else
+                {
+                    weaponControl.Visible = true;
+                    weaponControl.Location = game.WeaponInRoom.Location;
+                }
             }
 
             eqBox1.Visible = false;
@@ -260,7 +260,7 @@ namespace Expansion
             {
                 victoryBox.Visible = true;
                 game.NewLevel(random);
-                UpdadeCharackters();
+                UpdateCharacters();
             }
         }
     }

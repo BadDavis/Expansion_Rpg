@@ -9,20 +9,21 @@ namespace Expansion
 {
     class Ghost : Enemy
     {
-        public Ghost(Game game, Point location, int hitPoints)
-            : base(game, location, 8)
+        public Ghost(Game game, Point location, int hitPoints, Size spriteSize)
+            : base(game, location, hitPoints, spriteSize)
         {
         }
 
         public override void Move(Random random)
         {
-            switch (random)
+            if (random.Next(1, 3) == 1)
             {
-                case 1:
+                location = Move(FindplayerDirection(game.playerLocation), game.Boundaries);
+            }
 
-
-                default:
-                    break;
+            if (NearPlayer())
+            {
+                game.HitPlayer(3, random);
             }
         }
     }

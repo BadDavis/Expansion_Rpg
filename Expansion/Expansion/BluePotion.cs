@@ -11,6 +11,7 @@ namespace Expansion
     {
         public BluePotion(Game game, Point location) : base(game, location)
         {
+            Used = false;
         }
 
         public override string Name

@@ -10,7 +10,7 @@ namespace Expansion
 {
     class Game
     {
-        public IEnumerable<Enemy> Enemies { get; private set;}
+        public List<Enemy> Enemies { get; private set;}
         public Weapon WeaponInRoom { get; private set; }
 
         private Player player;
@@ -27,7 +27,8 @@ namespace Expansion
         public Game(Rectangle boundaries)
         {
             this.boundaries = boundaries;
-            player = new Player(this, new Point(boundaries.Left + 10, boundaries.Top + 70));
+            player = new Player(this, new Point(boundaries.Left + 10, boundaries.Top + 70)
+                , new Size(30, 30));
         }
 
         public void Move(Direction direction, Random random)
@@ -64,7 +65,7 @@ namespace Expansion
             player.Attack(direction, random);
             foreach (Enemy enemy in Enemies)
             {
-                enemy.move(random);
+                enemy.Move(random);
             }
         }
 
@@ -88,57 +89,57 @@ namespace Expansion
             {
                 case 1:
                     Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), 6, new Size(30,30)));
                     WeaponInRoom = new Sword(this, GetRandomLocation(random));
                     break;
 
                 case 2:
                     Enemies = new List<Enemy>();
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    WeaponInRoom = new Blue(this, GetRandomLocation(random));
+                    Enemies.Add(new Ghost(this, GetRandomLocation(random), 8, new Size(30, 30)));
+                    WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     break;
 
                 case 3:
                     Enemies = new List<Enemy>();
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random));
+                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), 10, new Size(30,30)));
                     WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     break;
 
                 case 4:
                     Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    if (player.Weapons.Contains(Bow))
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), 6, new Size(30, 30)));
+                    Enemies.Add(new Ghost(this, GetRandomLocation(random), 8, new Size(30, 30)));
+                    if (player.Weapons.Contains("Łuk"))
                     {
-                        WeaponInRoom = new Blue(this, GetRandomLocation(random));
+                        WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     }
                     else WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     break;
 
                 case 5:
                     Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
-                    WeaponInRoom = new Red(this, GetRandomLocation(random));
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), 6, new Size(30, 30)));
+                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), 10 ,new Size(30, 30)));
+                    WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
                     break;
 
                 case 6:
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
+                    Enemies.Add(new Ghost(this, GetRandomLocation(random), 8, new Size(30, 30)));
+                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), 10, new Size(30, 30)));
                     WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     break;
 
                 case 7:
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
-                    if (!player.Weapon.Contains(Mace))
+                    Enemies.Add(new Bat(this, GetRandomLocation(random), 6, new Size(30, 30)));
+                    Enemies.Add(new Ghost(this, GetRandomLocation(random), 8 , new Size(30, 30)));
+                    Enemies.Add(new Ghoul(this, GetRandomLocation(random), 10, new Size(30, 30)));
+                    if (CheckPlayerInventory("buława"))
                     {
                         WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     }
-                    else if (!player.Weapons.Contains(Red))
+                    else if (CheckPlayerInventory("Czerwona mikstura"))
                     {
-                        WeaponInRoom = new Red(this, GetRandomLocation(random));
+                        WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
                     }
                     else WeaponInRoom = new BattleAxe(this, GetRandomLocation(random));
                     break;

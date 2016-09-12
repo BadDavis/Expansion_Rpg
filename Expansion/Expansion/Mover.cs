@@ -67,14 +67,5 @@ namespace Expansion
             }
             return newLocation;
         }
-
-
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right,
-        }
     }
 }

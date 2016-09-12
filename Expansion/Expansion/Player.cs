@@ -62,15 +62,13 @@ namespace Expansion
 
         public void Move(Direction direction)
         {
-            Weapon nearWeapon;
             base.location = Move(direction, game.Boundaries);
             if (!game.WeaponInRoom.PickedUp)
             {
-                //Sprawdz, czy bron jest w pobliżu
-                //Jeśli jest jedynym przedmiotem, jest automatycznie wybierana
                 if (Nearby(game.playerLocation, 25))
                 {
-
+                    game.WeaponInRoom.PickedUpWeapon();
+                    inventory.Add(game.WeaponInRoom);
                 }
             }
         }
@@ -99,36 +97,7 @@ namespace Expansion
             //Potion użyty znika z eq+
             if (inventory.Contains(equippedWeapon))
             {
-                switch (direction)
-                {
-                    case Direction.Up:
-                        game.Attack(Direction.Up, random);
-                        break;
-                    case Direction.Down:
-                        game.Attack(Direction.Down, random);
-                        break;
-                    case Direction.Left:
-                        game.Attack(Direction.Left, random);
-                        break;
-                    case Direction.Right:
-                        game.Attack(Direction.Right, random);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                if (inventory.Contains(RedPotion) )
-                {
-                    player.IncreaseHealth(1, random);
-                    inventory.Remove(Red);
-                }
-                if (inventory.Concat(Blue)
-                {
-                    player.
-                    inventory.Remove(Blue);
-                }
+                equippedWeapon.Attack(direction, random);
             }
         }
     }
