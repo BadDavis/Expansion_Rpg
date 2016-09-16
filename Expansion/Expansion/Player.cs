@@ -66,7 +66,7 @@ namespace Expansion
             base.location = Move(direction, game.Boundaries);
             if (!game.WeaponInRoom.PickedUp)
             {
-                if (Nearby(game.playerLocation, 25))
+                if (Nearby(game.WeaponInRoom.Location, 1))
                 {
                     game.WeaponInRoom.PickedUpWeapon();
                     inventory.Add(game.WeaponInRoom);

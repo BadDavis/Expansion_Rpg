@@ -60,18 +60,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.wizardHp = new System.Windows.Forms.Label();
             this.Ruch = new System.Windows.Forms.GroupBox();
-            this.eqBox6 = new System.Windows.Forms.PictureBox();
-            this.dieBox = new System.Windows.Forms.PictureBox();
-            this.victoryBox = new System.Windows.Forms.PictureBox();
-            this.moveUp = new System.Windows.Forms.Button();
-            this.moveLeft = new System.Windows.Forms.Button();
-            this.moveRight = new System.Windows.Forms.Button();
             this.moveDown = new System.Windows.Forms.Button();
+            this.moveRight = new System.Windows.Forms.Button();
+            this.moveLeft = new System.Windows.Forms.Button();
+            this.moveUp = new System.Windows.Forms.Button();
+            this.eqBox6 = new System.Windows.Forms.PictureBox();
+            this.victoryBox = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.attackDown = new System.Windows.Forms.Button();
             this.attackRight = new System.Windows.Forms.Button();
             this.attackLeft = new System.Windows.Forms.Button();
             this.attackUp = new System.Windows.Forms.Button();
+            this.dieBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.playerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.swordBox)).BeginInit();
@@ -94,9 +94,9 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.Ruch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).BeginInit();
             this.SuspendLayout();
             // 
             // playerBox
@@ -200,7 +200,7 @@
             this.bowBox.BackColor = System.Drawing.Color.Transparent;
             this.bowBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bowBox.BackgroundImage")));
             this.bowBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bowBox.Location = new System.Drawing.Point(251, 109);
+            this.bowBox.Location = new System.Drawing.Point(385, 161);
             this.bowBox.Name = "bowBox";
             this.bowBox.Size = new System.Drawing.Size(30, 30);
             this.bowBox.TabIndex = 8;
@@ -271,7 +271,7 @@
             // 
             this.eqBox4.BackColor = System.Drawing.Color.Transparent;
             this.eqBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox4.BackgroundImage")));
-            this.eqBox4.Location = new System.Drawing.Point(293, 537);
+            this.eqBox4.Location = new System.Drawing.Point(237, 325);
             this.eqBox4.Name = "eqBox4";
             this.eqBox4.Size = new System.Drawing.Size(50, 50);
             this.eqBox4.TabIndex = 16;
@@ -282,7 +282,7 @@
             // 
             this.eqBox2.BackColor = System.Drawing.Color.Transparent;
             this.eqBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox2.BackgroundImage")));
-            this.eqBox2.Location = new System.Drawing.Point(181, 537);
+            this.eqBox2.Location = new System.Drawing.Point(123, 325);
             this.eqBox2.Name = "eqBox2";
             this.eqBox2.Size = new System.Drawing.Size(50, 50);
             this.eqBox2.TabIndex = 17;
@@ -294,7 +294,7 @@
             this.eqBox5.BackColor = System.Drawing.Color.Transparent;
             this.eqBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox5.BackgroundImage")));
             this.eqBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.eqBox5.Location = new System.Drawing.Point(349, 537);
+            this.eqBox5.Location = new System.Drawing.Point(293, 325);
             this.eqBox5.Name = "eqBox5";
             this.eqBox5.Size = new System.Drawing.Size(50, 50);
             this.eqBox5.TabIndex = 18;
@@ -305,7 +305,7 @@
             // 
             this.eqBox3.BackColor = System.Drawing.Color.Transparent;
             this.eqBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox3.BackgroundImage")));
-            this.eqBox3.Location = new System.Drawing.Point(237, 537);
+            this.eqBox3.Location = new System.Drawing.Point(181, 325);
             this.eqBox3.Name = "eqBox3";
             this.eqBox3.Size = new System.Drawing.Size(50, 50);
             this.eqBox3.TabIndex = 19;
@@ -316,7 +316,7 @@
             // 
             this.eqBox1.BackColor = System.Drawing.Color.Transparent;
             this.eqBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox1.BackgroundImage")));
-            this.eqBox1.Location = new System.Drawing.Point(125, 537);
+            this.eqBox1.Location = new System.Drawing.Point(67, 325);
             this.eqBox1.Name = "eqBox1";
             this.eqBox1.Size = new System.Drawing.Size(50, 50);
             this.eqBox1.TabIndex = 20;
@@ -339,7 +339,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ghoulHitPoints, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.wizardHp, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(677, 405);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(599, 205);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -458,75 +458,12 @@
             this.Ruch.Controls.Add(this.moveLeft);
             this.Ruch.Controls.Add(this.moveUp);
             this.Ruch.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Ruch.Location = new System.Drawing.Point(551, 517);
+            this.Ruch.Location = new System.Drawing.Point(599, 3);
             this.Ruch.Name = "Ruch";
             this.Ruch.Size = new System.Drawing.Size(121, 100);
             this.Ruch.TabIndex = 22;
             this.Ruch.TabStop = false;
             this.Ruch.Text = "Ruch";
-            // 
-            // eqBox6
-            // 
-            this.eqBox6.BackColor = System.Drawing.Color.Transparent;
-            this.eqBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox6.BackgroundImage")));
-            this.eqBox6.Location = new System.Drawing.Point(405, 537);
-            this.eqBox6.Name = "eqBox6";
-            this.eqBox6.Size = new System.Drawing.Size(50, 50);
-            this.eqBox6.TabIndex = 23;
-            this.eqBox6.TabStop = false;
-            this.eqBox6.Click += new System.EventHandler(this.eqBox6_Click);
-            // 
-            // dieBox
-            // 
-            this.dieBox.BackColor = System.Drawing.Color.Transparent;
-            this.dieBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dieBox.BackgroundImage")));
-            this.dieBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dieBox.Location = new System.Drawing.Point(375, 188);
-            this.dieBox.Name = "dieBox";
-            this.dieBox.Size = new System.Drawing.Size(267, 126);
-            this.dieBox.TabIndex = 24;
-            this.dieBox.TabStop = false;
-            // 
-            // victoryBox
-            // 
-            this.victoryBox.BackColor = System.Drawing.Color.Transparent;
-            this.victoryBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("victoryBox.BackgroundImage")));
-            this.victoryBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.victoryBox.Location = new System.Drawing.Point(375, 279);
-            this.victoryBox.Name = "victoryBox";
-            this.victoryBox.Size = new System.Drawing.Size(267, 177);
-            this.victoryBox.TabIndex = 25;
-            this.victoryBox.TabStop = false;
-            // 
-            // moveUp
-            // 
-            this.moveUp.Location = new System.Drawing.Point(52, 11);
-            this.moveUp.Name = "moveUp";
-            this.moveUp.Size = new System.Drawing.Size(30, 30);
-            this.moveUp.TabIndex = 0;
-            this.moveUp.Text = "↑";
-            this.moveUp.UseVisualStyleBackColor = true;
-            this.moveUp.Click += new System.EventHandler(this.moveUp_Click);
-            // 
-            // moveLeft
-            // 
-            this.moveLeft.Location = new System.Drawing.Point(16, 40);
-            this.moveLeft.Name = "moveLeft";
-            this.moveLeft.Size = new System.Drawing.Size(30, 30);
-            this.moveLeft.TabIndex = 1;
-            this.moveLeft.Text = "←";
-            this.moveLeft.UseVisualStyleBackColor = true;
-            this.moveLeft.Click += new System.EventHandler(this.moveLeft_Click);
-            // 
-            // moveRight
-            // 
-            this.moveRight.Location = new System.Drawing.Point(88, 40);
-            this.moveRight.Name = "moveRight";
-            this.moveRight.Size = new System.Drawing.Size(30, 30);
-            this.moveRight.TabIndex = 2;
-            this.moveRight.Text = "→";
-            this.moveRight.UseVisualStyleBackColor = true;
-            this.moveRight.Click += new System.EventHandler(this.moveRight_Click);
             // 
             // moveDown
             // 
@@ -538,6 +475,59 @@
             this.moveDown.UseVisualStyleBackColor = true;
             this.moveDown.Click += new System.EventHandler(this.moveDown_Click);
             // 
+            // moveRight
+            // 
+            this.moveRight.Location = new System.Drawing.Point(88, 40);
+            this.moveRight.Name = "moveRight";
+            this.moveRight.Size = new System.Drawing.Size(30, 30);
+            this.moveRight.TabIndex = 2;
+            this.moveRight.Text = "→";
+            this.moveRight.UseVisualStyleBackColor = true;
+            this.moveRight.Click += new System.EventHandler(this.moveRight_Click);
+            // 
+            // moveLeft
+            // 
+            this.moveLeft.Location = new System.Drawing.Point(16, 40);
+            this.moveLeft.Name = "moveLeft";
+            this.moveLeft.Size = new System.Drawing.Size(30, 30);
+            this.moveLeft.TabIndex = 1;
+            this.moveLeft.Text = "←";
+            this.moveLeft.UseVisualStyleBackColor = true;
+            this.moveLeft.Click += new System.EventHandler(this.moveLeft_Click);
+            // 
+            // moveUp
+            // 
+            this.moveUp.Location = new System.Drawing.Point(52, 11);
+            this.moveUp.Name = "moveUp";
+            this.moveUp.Size = new System.Drawing.Size(30, 30);
+            this.moveUp.TabIndex = 0;
+            this.moveUp.Text = "↑";
+            this.moveUp.UseVisualStyleBackColor = true;
+            this.moveUp.Click += new System.EventHandler(this.moveUp_Click);
+            // 
+            // eqBox6
+            // 
+            this.eqBox6.BackColor = System.Drawing.Color.Transparent;
+            this.eqBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eqBox6.BackgroundImage")));
+            this.eqBox6.Location = new System.Drawing.Point(349, 325);
+            this.eqBox6.Name = "eqBox6";
+            this.eqBox6.Size = new System.Drawing.Size(50, 50);
+            this.eqBox6.TabIndex = 23;
+            this.eqBox6.TabStop = false;
+            this.eqBox6.Click += new System.EventHandler(this.eqBox6_Click);
+            // 
+            // victoryBox
+            // 
+            this.victoryBox.BackColor = System.Drawing.Color.Transparent;
+            this.victoryBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("victoryBox.BackgroundImage")));
+            this.victoryBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.victoryBox.Location = new System.Drawing.Point(229, 184);
+            this.victoryBox.Name = "victoryBox";
+            this.victoryBox.Size = new System.Drawing.Size(150, 101);
+            this.victoryBox.TabIndex = 25;
+            this.victoryBox.TabStop = false;
+            this.victoryBox.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
@@ -546,7 +536,7 @@
             this.groupBox1.Controls.Add(this.attackLeft);
             this.groupBox1.Controls.Add(this.attackUp);
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.groupBox1.Location = new System.Drawing.Point(683, 517);
+            this.groupBox1.Location = new System.Drawing.Point(599, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(121, 100);
             this.groupBox1.TabIndex = 26;
@@ -594,13 +584,25 @@
             this.attackUp.UseVisualStyleBackColor = true;
             this.attackUp.Click += new System.EventHandler(this.attackUp_Click);
             // 
+            // dieBox
+            // 
+            this.dieBox.BackColor = System.Drawing.Color.Transparent;
+            this.dieBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dieBox.BackgroundImage")));
+            this.dieBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dieBox.Location = new System.Drawing.Point(251, 145);
+            this.dieBox.Name = "dieBox";
+            this.dieBox.Size = new System.Drawing.Size(96, 46);
+            this.dieBox.TabIndex = 24;
+            this.dieBox.TabStop = false;
+            this.dieBox.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1000, 662);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(804, 398);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.victoryBox);
             this.Controls.Add(this.dieBox);
@@ -653,9 +655,9 @@
             this.tableLayoutPanel1.PerformLayout();
             this.Ruch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eqBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.victoryBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dieBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,7 +696,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label wizardHp;
         private System.Windows.Forms.PictureBox eqBox6;
-        private System.Windows.Forms.PictureBox dieBox;
         private System.Windows.Forms.PictureBox victoryBox;
         private System.Windows.Forms.Button moveDown;
         private System.Windows.Forms.Button moveRight;
@@ -705,6 +706,7 @@
         private System.Windows.Forms.Button attackRight;
         private System.Windows.Forms.Button attackLeft;
         private System.Windows.Forms.Button attackUp;
+        private System.Windows.Forms.PictureBox dieBox;
     }
 }
 

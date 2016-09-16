@@ -41,7 +41,7 @@ namespace Expansion
                 case Direction.Up:
                     if (newLocation.Y - MoveInterval >= boundaries.Top)
                     {
-                        newLocation.Y += MoveInterval;
+                        newLocation.Y -= MoveInterval;
                     }
                     break;
                 case Direction.Down:

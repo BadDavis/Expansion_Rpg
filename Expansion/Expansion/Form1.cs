@@ -29,42 +29,47 @@ namespace Expansion
 
         private void eqBox1_Click(object sender, EventArgs e)
         {
-            SelectInventoryItem(swordBox, "Miecz", "weapon");
+            if (game.CheckPlayerInventory("Długi miecz"))
+            {
+                game.Equip("Długi miecz");
+                
+            }
+            eqBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
         }
 
         private void eqBox2_Click(object sender, EventArgs e)
         {
-            /*/  if (game.CheckPlayerInventory("Łuk"))
+              if (game.CheckPlayerInventory("Łuk"))
                {
                    game.Equip("Łuk");
-                   RemoveInventorySpriteBorders();
+                   
                }
-               eqBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;*/
-            SelectInventoryItem(bowBox, "Łuk", "weapon");
+               eqBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+           /* SelectInventoryItem(bowBox, "Łuk", "weapon");*/
         }
 
         private void eqBox3_Click(object sender, EventArgs e)
         {
-            /* if (game.CheckPlayerInventory("Buława"))
+             if (game.CheckPlayerInventory("Buława"))
              {
                  game.Equip("Buława");
-                 RemoveInventorySpriteBorders();
+                 
              }
              eqBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-             SelectInventoryItem(swordBox, "Miecz", "weapon");
-         */
-            SelectInventoryItem(bowBox, "Łuk", "weapon");
+            /* SelectInventoryItem(swordBox, "Długi miecz", "weapon");
+         
+            SelectInventoryItem(bowBox, "Łuk", "weapon");*/
         }
 
         private void eqBox4_Click(object sender, EventArgs e)
         {
-            /* if (game.CheckPlayerInventory("Topór Obosieczny"))
+            if (game.CheckPlayerInventory("Topór Obosieczny"))
              {
                  game.Equip("Topur Obosieczny");
-                 RemoveInventorySpriteBorders();
+                 /*RemoveInventorySpriteBorders();*/
              }
-             eqBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;*/
-            SelectInventoryItem(axeBox, "Topór Obosieczny", "weapon");
+             eqBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+           /* SelectInventoryItem(axeBox, "Topór Obosieczny", "weapon");*/
         }
 
         private void eqBox5_Click(object sender, EventArgs e)
@@ -86,38 +91,19 @@ namespace Expansion
             eqBox6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
         }
 
-        private void RemoveInventorySpriteBorders()
-        {
-            eqBox1.BorderStyle = BorderStyle.None;
-            eqBox2.BorderStyle = BorderStyle.None;
-            eqBox3.BorderStyle = BorderStyle.None;
-            eqBox4.BorderStyle = BorderStyle.None;
-            eqBox5.BorderStyle = BorderStyle.None;
-            eqBox6.BorderStyle = BorderStyle.None;
-        }
-
         public void UpdateCharacters()
         {
+            //dieBox.Visible = false;
+           // victoryBox.Visible = false;
+            playerBox.Visible = true;
             playerBox.Location = game.playerLocation;
             playerHitPoints.Text = game.playerHitPoints.ToString();
 
             bool showBat = false;
             bool showGhost = false;
             bool showGhoul = false;
+            bool showWizard = false;
             int enemiesShown = 0;
-
-            if (batBox.Visible == true)
-            {
-                showBat = true;
-            }
-            if (ghostBox.Visible)
-            {
-                showGhost = true;
-            }
-            if (ghoulBox.Visible == true)
-            {
-                showGhoul = true;
-            }
 
             foreach (Enemy enemy in game.Enemies)
             {
@@ -131,9 +117,10 @@ namespace Expansion
                         enemiesShown++;
                     }
                 }
+
                 if (enemy is Ghost)
                 {
-                    ghostBox.Location = enemy.Location;
+                    batBox.Location = enemy.Location;
                     label2.Text = enemy.HitPoints.ToString();
                     if (enemy.HitPoints > 0)
                     {
@@ -141,6 +128,7 @@ namespace Expansion
                         enemiesShown++;
                     }
                 }
+
                 if (enemy is Ghoul)
                 {
                     ghoulBox.Location = enemy.Location;
@@ -151,123 +139,134 @@ namespace Expansion
                         enemiesShown++;
                     }
                 }
-            }
 
-            if (showBat == false)
-            {
-                batBox.Visible = false;
-                label1.Text = "";
-            }
-            if (showGhost == false)
-            {
-                ghostBox.Visible = false;
-                label3.Text = "";
-            }
-            if (showGhoul == false)
-            {
-                ghoulBox.Visible = false;
-                label2.Text = "";
-            }
-
-            swordBox.Visible = false;
-            axeBox.Visible = false;
-            redPotionBox.Visible = false;
-            bluePotionBox.Visible = false;
-            maceBox.Visible = false;
-            bowBox.Visible = false;
-
-
-            if (game.WeaponInRoom != null)
-            {
-                Control weaponControl = null;
-                switch (game.WeaponInRoom.Name)
+                if (showBat)
                 {
-                    case "Miecz":
-                        weaponControl = swordBox;
-                        break;
+                    batBox.Visible = true;
+                }
+                else batBox.Visible = false;
 
-                    case "Buława":
-                        weaponControl = maceBox;
-                        break;
+                if (showGhost)
+                {
+                    ghostBox.Visible = true;
+                }
+                else ghostBox.Visible = false;
 
-                    case "Topór Obosieczny":
-                        weaponControl = axeBox;
-                        break;
+                if (showGhoul)
+                {
+                    ghoulBox.Visible = true;
+                }
+                else ghoulBox.Visible = false;
 
-                    case "Łuk":
-                        weaponControl = bowBox;
-                        break;
 
-                    case "Niebieska mikstura":
-                        weaponControl = bluePotionBox;
-                        break;
 
-                    case "Czerwona mikstura":
-                        weaponControl = redPotionBox;
-                        break;
+                swordBox.Visible = false;
+                maceBox.Visible = false;
+                axeBox.Visible = false;
+                bowBox.Visible = false;
+                redPotionBox.Visible = false;
+                bluePotionBox.Visible = false;
 
+                
+
+                if (game.WeaponInRoom.Name != null)
+                {
+                    Control weaponControl = null;
+                    switch (game.WeaponInRoom.Name)
+                    {
+                        case "Długi miecz":
+                            weaponControl = swordBox;
+                            break;
+
+                        case "Buława":
+                            weaponControl = maceBox;
+                            break;
+
+                        case "Łuk":
+                            weaponControl = bowBox;
+                            break;
+
+                        case "Topór Obosieczny":
+                            weaponControl = axeBox;
+                            break;
+
+                        case "Czerwona mikstura":
+                            weaponControl = redPotionBox;
+                            break;
+
+                        case "Niebieska mikstura":
+                            weaponControl = bluePotionBox;
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    if (game.WeaponInRoom.PickedUp)
+                    {
+                        weaponControl.Visible = false;
+                    }
+                    else
+                    {
+                        weaponControl.Visible = true;
+                        weaponControl.Location = game.WeaponInRoom.Location;
+                    }
                 }
 
-                if (game.WeaponInRoom.PickedUp)
-                {
-                    weaponControl.Visible = false;
-                }
-                else
-                {
-                    //       Console.Write(weaponControl);
-                  //  weaponControl.Visible = true;
-                    //weaponControl.Location = game.WeaponInRoom.Location;
-                }
-            }
+                eqBox1.Visible = false;
+                eqBox2.Visible = false;
+                eqBox3.Visible = false;
+                eqBox4.Visible = false;
+                eqBox5.Visible = false;
+                eqBox6.Visible = false;
 
-            eqBox1.Visible = false;
-            eqBox2.Visible = false;
-            eqBox3.Visible = false;
-            eqBox4.Visible = false;
-            eqBox5.Visible = false;
-            eqBox6.Visible = false;
-
-            if (game.CheckPlayerInventory("Miecz"))
-            {
-                eqBox1.Visible = true;
-            }
-            if (game.CheckPlayerInventory("Topór obosieczny"))
-            {
-                eqBox3.Visible = true;
-            }
-            if (game.CheckPlayerInventory("Łuk"))
-            {
-                eqBox2.Visible = true;
-            }
-            if (game.CheckPlayerInventory("Buława"))
-            {
-                eqBox4.Visible = true;
-            }
-            if (game.CheckPlayerInventory("Czerwona mikstura"))
-            {
-                if (!game.Potion("Czerwona mikstura"))
+                if (game.CheckPlayerInventory("Długi miecz"))
+                {
+                    eqBox1.Visible = true;
+                }
+                if (game.CheckPlayerInventory("Łuk"))
+                {
+                    eqBox2.Visible = true;
+                }
+                if (game.CheckPlayerInventory("Buława"))
+                {
+                    eqBox3.Visible = true;
+                }
+                if (game.CheckPlayerInventory("Topór Obosieczny"))
+                {
+                    eqBox4.Visible = true;
+                }
+                if (game.CheckPlayerInventory("Czerwona mikstura"))
                 {
                     eqBox6.Visible = true;
                 }
-            }
-            if (game.CheckPlayerInventory("Niebieska mikstura"))
-            {
-                if (game.Potion("Niebieska mikstura"))
+                if (game.CheckPlayerInventory("Niebieska mikstura"))
                 {
                     eqBox5.Visible = true;
                 }
-            }
 
-            if (game.playerHitPoints <= 0)
-            {
-                dieBox.Visible = true;
-                Application.Exit();
-            }
-            if (enemiesShown < 1)
-            {
-                victoryBox.Visible = true;
-                game.NewLevel(random);
-                UpdateCharacters();
+                /*weaponControl.Location = game.WeaponInRoom.Location;
+                if (game.WeaponInRoom.PickedUp)
+                {
+                    weaponControl.Visible = true;
+                }
+                else
+                {
+                    weaponControl.Visible = false;
+                }*/
+
+                if (game.playerHitPoints <= 0)
+                {
+                    dieBox.Visible = true;
+                    Application.Exit();
+                }
+
+                if (enemiesShown < 1)
+                {
+                    victoryBox.Visible = true;
+                    game.NewLevel(random);
+                    UpdateCharacters();
+                }
             }
         }
 
@@ -318,55 +317,7 @@ namespace Expansion
             game.Attack(Direction.Right, random);
             UpdateCharacters();
         }
+      }
 
-        private bool UpdateEnemySprite(Enemy enemy, PictureBox enemySprite, Label enemyHitPoints)
-        {
-            bool enemySpriteUpdated = false;
-
-            enemyHitPoints.Text = enemy.HitPoints.ToString();
-
-            if (enemy.HitPoints > 0)
-            {
-                enemySprite.Location = enemy.Location;
-                enemySprite.Visible = true;
-                enemySpriteUpdated = true;
-            }
-            else
-            {
-                enemySprite.Visible = false;
-            }
-
-            return enemySpriteUpdated;
-        }
-
-        private void SelectInventoryItem(PictureBox itemSprite, string itemName, string weaponType)
-        {
-            if (game.CheckPlayerInventory(itemName))
-            {
-                game.Equip(itemName);
-                RemoveInventorySpriteBorders();
-                itemSprite.BorderStyle = BorderStyle.FixedSingle;
-                SetupAttackButtons(weaponType);
-            }
-        }
-
-        private void SetupAttackButtons(string weaponType)
-        {
-            switch (weaponType.ToLower())
-            {
-                case "weapon":
-                    attackUp.Text = "Up";
-                    attackRight.Visible = true;
-                    attackDown.Visible = true;
-                    attackLeft.Visible = true;
-                    break;
-                case "potion":
-                    attackUp.Text = "Drink";
-                    attackRight.Visible = false;
-                    attackDown.Visible = false;
-                    attackLeft.Visible = false;
-                    break;
-            }
-        }
-    }
 }
+
