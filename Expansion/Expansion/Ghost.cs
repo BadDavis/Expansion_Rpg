@@ -16,7 +16,7 @@ namespace Expansion
 
         public override void Move(Random random)
         {
-            if (random.Next(1, 3) == 1)
+            if (random.Next(1, 3) != 1)
             {
                 location = Move(FindplayerDirection(game.playerLocation), game.Boundaries);
             }

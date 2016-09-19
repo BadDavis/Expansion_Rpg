@@ -52,7 +52,7 @@
             this.playerLabel = new System.Windows.Forms.Label();
             this.playerHitPoints = new System.Windows.Forms.Label();
             this.batLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.batHP = new System.Windows.Forms.Label();
             this.ghostLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ghostHitPoints = new System.Windows.Forms.Label();
@@ -332,7 +332,7 @@
             this.tableLayoutPanel1.Controls.Add(this.playerLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.playerHitPoints, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.batLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.batHP, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.ghostLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.ghostHitPoints, 1, 3);
@@ -380,15 +380,15 @@
             this.batLabel.TabIndex = 2;
             this.batLabel.Text = "Nietoperz";
             // 
-            // label1
+            // batHP
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(103, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.batHP.AutoSize = true;
+            this.batHP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.batHP.Location = new System.Drawing.Point(103, 17);
+            this.batHP.Name = "batHP";
+            this.batHP.Size = new System.Drawing.Size(94, 17);
+            this.batHP.TabIndex = 3;
+            this.batHP.Text = "label1";
             // 
             // ghostLabel
             // 
@@ -687,7 +687,7 @@
         private System.Windows.Forms.Label playerLabel;
         private System.Windows.Forms.Label playerHitPoints;
         private System.Windows.Forms.Label batLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label batHP;
         private System.Windows.Forms.Label ghostLabel;
         private System.Windows.Forms.Label ghostHitPoints;
         private System.Windows.Forms.Label label2;

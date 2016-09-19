@@ -9,5 +9,6 @@ namespace Expansion
     interface IPotion
     {
         bool Used { get; }
+
     }
 }

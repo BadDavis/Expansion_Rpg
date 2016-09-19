@@ -82,6 +82,11 @@ namespace Expansion
                 random.Next(boundaries.Bottom / 10 - boundaries.Top / 10) * 10);
         }
 
+        public bool CheckPotion(string potion)
+        {
+            return player.CheckPotionUsed(potion);
+        }
+
         public void NewLevel(Random random)
         {
             level++;
@@ -111,9 +116,15 @@ namespace Expansion
                     Enemies.Add(new Ghost(this, GetRandomLocation(random), 8, new Size(30, 30)));
                     if (CheckPlayerInventory("Łuk"))
                     {
-                        WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
+                        if (!CheckPlayerInventory("Niebieska mikstura") || CheckPlayerInventory("Niebieska mikstura") && Potion("Niebieska mikstura"))
+                        {
+                            WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
+                        }
                     }
-                    else WeaponInRoom = new Bow(this, GetRandomLocation(random));
+                    else
+                    {
+                        WeaponInRoom = new Bow(this, GetRandomLocation(random));
+                    }
                     break;
 
                 case 5:
